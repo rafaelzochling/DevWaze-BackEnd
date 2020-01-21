@@ -1,4 +1,4 @@
-FROM node:12.13.0
+FROM node:carbon AS builder
 
 # install dependencies
 WORKDIR /opt/app
@@ -10,7 +10,7 @@ RUN npm cache clean --force && npm install
 COPY . /opt/app
 
 # set application PORT and expose docker PORT
-ENV PORT 80
-EXPOSE 80
+ENV PORT 3033
+EXPOSE 3033
 
 CMD [ "npm", "run", "start" ]
